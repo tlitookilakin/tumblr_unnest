@@ -1,14 +1,14 @@
 # tumblr_unnest
-A simple JS script that allows for greater control over how user captions are displayed, primarily by un-nesting them.
+### A simple JS script that allows for greater control over how user captions are displayed, primarily by un-nesting them.
 
-# How to use:
+## How to use:
 A simple example and explanation can be found here: https://codepen.io/Tlitookilakin/pen/QmmyKa
 To install this in your tumblr theme, here's what you need to do:
 * Load the script by copying and pasting the following into your theme's HTML: ```<script src="https://static.tumblr.com/nwaa9ez/Om2p6dob2/t_unnest.js" type="text/javascript"></script>```
 * Run the unnesting by putting this code in a ```<script>``` tag: ```unnest(captionname, avatarsize, showcolons, reblogname, addnewusername, openinnewtab);```
 * The plugin is now installed, now to customize it.
 
-# Customization:
+## Customization:
 1. **"captionname"**: The class name for the caption element.
 *Example*: ```"caption"```
 2. **"avatarsize"**: Avatar size. 0 or smaller disables the feature.
@@ -23,3 +23,10 @@ To install this in your tumblr theme, here's what you need to do:
 *Example*: ```false```
 
 All values are optional **except** ```captionname``` and ```avatarsize``` .
+
+***
+
+*PLEASE NOTE THAT ALTHOUGH THIS PROJECT IS VISIBLE SOURCE, IT IS **NOT** OPEN SOURCE, and all copies, modified or otherwise, of this plugin **must** contain a link to this page (https://github.com/tlitookilakin/tumblr_unnest). Additionally, you may not redistribute this script as your own work. The script may be used in any and all themes, provided the above requirements are met- additional credit is not required.* 
+
+***
+#### If you have bugs or suggestions, please use the issues tab. If you have questions, please contact me at hummingbird-themes.tumblr.com
