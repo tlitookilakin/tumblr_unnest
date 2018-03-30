@@ -10,6 +10,7 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 		var is_bottom = !containsPost(curblock);
 		if ((curblock.children.length > 2 && !is_bottom) || is_bottom) {
 			var el = document.createElement("div");
+			el.className=wrapclass;
 			if (addnewname) {
 				let ll = document.createElement("p");
 				ll.className = "tumblr_blog";
