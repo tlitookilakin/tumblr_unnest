@@ -21,3 +21,5 @@ To install this in your tumblr theme, here's what you need to do:
 *Example*: ```true```
 6. **"openinnewtab"**: Whether or not blog links should open in a new tab.
 *Example*: ```false```
+
+All values are optional **except** ```captionname``` and ```avatarsize``` .
