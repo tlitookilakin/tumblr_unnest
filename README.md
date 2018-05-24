@@ -26,7 +26,7 @@ All values are optional **except** ```captionname``` and ```avatarsize``` .
 
 ***
 
-*PLEASE NOTE THAT ALTHOUGH THIS PROJECT IS VISIBLE SOURCE, IT IS **NOT** OPEN SOURCE, and all copies, modified or otherwise, of this plugin **must** contain a link to this page (https://github.com/tlitookilakin/tumblr_unnest). Additionally, you may not redistribute this script as your own work. The script may be used in any and all themes, provided the above requirements are met- additional credit is not required.* 
+Licensed under GNU GPL 3.0
 
 ***
 #### If you have bugs or suggestions, please use the issues tab. If you have questions, please contact me at hummingbird-themes.tumblr.com
