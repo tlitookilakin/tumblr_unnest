@@ -16,7 +16,7 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 				ll.className = "tumblr_blog";
 				if (avatarsize > 0) {
 					let imgpath = "http://api.tumblr.com/v2/blog/" + host + "/avatar/" + String(avatarsize);
-					ll.innerHTML = "<img src='" + imgpath + "'/> ";
+					ll.innerHTML = "<img class='reblog_avatar' src='" + imgpath + "'/> ";
 				}
 				ll.innerHTML += "<a href='javascript:void(0)'>" + host + "</a>";
 				if (showcolons) {
@@ -52,6 +52,7 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 					let bUrl = n.children[0].innerHTML;
 					let e = document.createElement("img");
 					e.setAttribute("src","http://api.tumblr.com/v2/blog/" + bUrl + "/avatar/" + String(avatarsize));
+					e.className="reblog_avatar";
 					n.insertBefore(e, n.children[0]);
 					n.insertBefore(document.createTextNode(" "), n.children[1]);
 				}
