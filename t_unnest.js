@@ -2,6 +2,14 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 	document.addEventListener("DOMContentLoaded",function(){
 	var host = window.location.hostname.split(".").slice(0, -2);
 
+	var containsPost = function(elem) {
+		try {
+			return elem.children[0].children[0].classList.contains("tumblr_blog");
+		} catch (error) {
+			return false;
+		}
+	}
+
 	for (var main of document.getElementsByClassName(boxName)) {
 		var namelist = document.createElement("p");
 		var curblock = main.cloneNode(true);
@@ -69,14 +77,6 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 			}
 			curblock = nblock;
 			main.insertBefore(el, main.children[0]);
-		}
-	}
-
-	function containsPost(elem) {
-		try {
-			return elem.children[0].children[0].classList.contains("tumblr_blog");
-		} catch (error) {
-			return false;
 		}
 	}
 });}
