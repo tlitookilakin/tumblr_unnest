@@ -1,8 +1,8 @@
 function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openintab) {
 	document.addEventListener("DOMContentLoaded",function(){
-	var host = window.location.hostname.split(".").slice(0, -2);
+	let host = window.location.hostname.split(".").slice(0, -2);
 
-	var containsPost = function(elem) {
+	let containsPost = function(elem) {
 		try {
 			return elem.children[0].children[0].classList.contains("tumblr_blog");
 		} catch (error) {
@@ -10,21 +10,21 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 		}
 	}
 
-	for (var main of document.getElementsByClassName(boxName)) {
-		var namelist = document.createElement("p");
-		var curblock = main.cloneNode(true);
-		var nblock = curblock;
+	for (let main of document.getElementsByClassName(boxName)) {
+		let namelist = document.createElement("p");
+		let curblock = main.cloneNode(true);
+		let nblock = curblock;
 		main.innerHTML = "";
-		var is_bottom = !containsPost(curblock);
+		let is_bottom = !containsPost(curblock);
 		if ((curblock.children.length > 2 && !is_bottom) || is_bottom) {
-			var el = document.createElement("div");
+			let el = document.createElement("div");
 			el.className=wrapclass;
 			if (addnewname) {
 				let ll = document.createElement("p");
 				ll.className = "tumblr_blog";
 				if (avatarsize > 0) {
 					let imgpath = "http://api.tumblr.com/v2/blog/" + host + "/avatar/" + String(avatarsize);
-					ll.innerHTML = "<img class='reblog_avatar' src='" + imgpath + "'/> ";
+					ll.innerHTML = "<img class='reblog_avatar' src='" + imgpath + "' data-lightbox='none' class='reblog_avatar'/> ";
 				}
 				ll.innerHTML += "<a href='javascript:void(0)'>" + host + "</a>";
 				if (showcolons) {
@@ -61,6 +61,7 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 					let e = document.createElement("img");
 					e.setAttribute("src","http://api.tumblr.com/v2/blog/" + bUrl + "/avatar/" + String(avatarsize));
 					e.className="reblog_avatar";
+					e.setAttribute("data-lightbox","none");
 					n.insertBefore(e, n.children[0]);
 					n.insertBefore(document.createTextNode(" "), n.children[1]);
 				}
