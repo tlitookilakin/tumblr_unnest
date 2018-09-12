@@ -3,11 +3,10 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 	let host = window.location.hostname.split(".").slice(0, -2);
 
 	let containsPost = function(elem) {
-		try {
-			return elem.children[0].children[0].classList.contains("tumblr_blog");
-		} catch (error) {
-			return false;
-		}
+		if (elem.children.length>1 && elem.children[1].children.length>0 ){
+			let e = elem.children[1].children[0];
+			return (e.children.length>0 && e.children[0].classList.contains("tumblr_blog"));
+		} else { return false; }
 	}
 
 	for (let main of document.getElementsByClassName(boxName)) {
@@ -43,40 +42,42 @@ function unnest(boxName, avatarsize, showcolons, wrapclass, addnewname, openinta
 			main.appendChild(el);
 		}
 		while (!is_bottom) {
-			is_bottom = !containsPost(curblock);
-			if (!is_bottom) {
-				el = document.createElement("div");
-				el.className = wrapclass;
-				let n = curblock.children[0];
-				n.className="tumblr_blog";
-				if (!showcolons) {
-					n.innerHTML = n.innerHTML.slice(0, -1);
-				}
-				n.children[0].removeAttribute("class");
-				if(openintab){
-					n.children[0].setAttribute("target","_blank");
-				}
-				if (avatarsize > 0) {
-					let bUrl = n.children[0].innerHTML;
-					let e = document.createElement("img");
-					e.setAttribute("src","http://api.tumblr.com/v2/blog/" + bUrl + "/avatar/" + String(avatarsize));
-					e.className="reblog_avatar";
-					e.setAttribute("data-lightbox","none");
-					n.insertBefore(e, n.children[0]);
-					n.insertBefore(document.createTextNode(" "), n.children[1]);
-				}
-				el.appendChild(n);
+			let is_bottom = !containsPost(curblock);
+			el = document.createElement("div");
+			el.className = wrapclass;
+			let n = curblock.children[0];
+			n.className="tumblr_blog";
+			if (!showcolons) {
+				n.innerHTML = n.innerHTML.slice(0, -1);
+			}
+			n.children[0].removeAttribute("class");
+			if(openintab){
+				n.children[0].setAttribute("target","_blank");
+			}
+			if (avatarsize > 0) {
+				let bUrl = n.children[0].innerHTML;
+				let e = document.createElement("img");
+				e.setAttribute("src","http://api.tumblr.com/v2/blog/" + bUrl + "/avatar/" + String(avatarsize));
+				e.className="reblog_avatar";
+				e.setAttribute("data-lightbox","none");
+				n.insertBefore(e, n.children[0]);
+				n.insertBefore(document.createTextNode(" "), n.children[1]);
+			}
+			el.appendChild(n);
+			if (is_bottom) {
 				nblock = curblock.children[0].cloneNode(true);
 				curblock.removeChild(curblock.children[0]);
 				let len = nblock.children.length;
 				for (let i = 2; i < len; i++) {
 					el.appendChild(nblock.children[2]);
 				}
+				curblock = nblock;
 			} else {
-				el = main.children[0];
-				el.innerHTML += curblock.innerHTML;
+				let len = curblock.children[0].children.length;
+				for (let i = 0; i < len; i++) {
+					el.appendChild(curblock.children[0].children[0]);
+				}
 			}
-			curblock = nblock;
 			main.insertBefore(el, main.children[0]);
 		}
 	}
