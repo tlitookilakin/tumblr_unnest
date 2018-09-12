@@ -2,7 +2,6 @@
 ### A simple JS script that allows for greater control over how user captions are displayed, primarily by un-nesting them.
 
 ## How to use:
-A simple example and explanation can be found here: https://codepen.io/Tlitookilakin/pen/QmmyKa
 To install this in your tumblr theme, here's what you need to do:
 * Load the script by copying and pasting the following into your theme's HTML: ```<script src="https://static.tumblr.com/nwaa9ez/Om2p6dob2/t_unnest.js" type="text/javascript"></script>```
 * Run the unnesting by putting this code in a ```<script>``` tag: ```unnest(captionname, avatarsize, showcolons, reblogname, addnewusername, openinnewtab);```
