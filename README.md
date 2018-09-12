@@ -3,7 +3,7 @@
 
 ## How to use:
 To install this in your tumblr theme, here's what you need to do:
-* Load the script by copying and pasting the following into your theme's HTML: ```<script src="https://static.tumblr.com/nwaa9ez/Om2p6dob2/t_unnest.js" type="text/javascript"></script>```
+* Load the script by copying and pasting the following into your theme's HTML: ```<script src="https://static.tumblr.com/nwaa9ez/rCWpeyjqj/tunnest_min.js" type="text/javascript"></script>```
 * Run the unnesting by putting this code in a ```<script>``` tag: ```unnest(captionname, avatarsize, showcolons, reblogname, addnewusername, openinnewtab);```
 * The plugin is now installed, now to customize it.
 
